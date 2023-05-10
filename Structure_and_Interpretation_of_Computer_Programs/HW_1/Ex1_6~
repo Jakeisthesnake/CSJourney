@@ -1,0 +1,14 @@
+#lang simply-scheme
+
+(define (display-1-true)
+  (;(display 1)
+   #f))
+           
+(define (display-2-true)
+  ((display 2)
+   #t))
+
+(or display-1-true display-2-true)
+
+(define (test-1)
+  2 #t)

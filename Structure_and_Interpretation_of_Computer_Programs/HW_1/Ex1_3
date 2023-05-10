@@ -1,0 +1,54 @@
+#lang simply-scheme
+
+(define (switch-first phrase)
+    (cond ((empty? phrase)  '())
+          ((equal? (first phrase) 'I) 'You)
+          ((equal? (first phrase) 'Me) 'You)
+          ((equal? (first phrase) 'You) 'I)
+          ((equal? (first phrase) 'i) 'you)
+          ((equal? (first phrase) 'me) 'you)
+          ((equal? (first phrase) 'you) 'i)
+          (else (first phrase))))
+
+(define (switch-but-first phrase)
+    (cond ((empty? phrase)  '())
+          ((equal? (first phrase) 'I)
+           (se 'you (switch-but-first (bf phrase))))
+          ((equal? (first phrase) 'Me)
+           (se 'you (switch-but-first (bf phrase))))
+          ((equal? (first phrase) 'You)
+           (se 'me (switch-but-first (bf phrase))))
+          ((equal? (first phrase) 'i)
+           (se 'you (switch-but-first (bf phrase))))
+          ((equal? (first phrase) 'me)
+           (se 'you (switch-but-first (bf phrase))))
+          ((equal? (first phrase) 'you)
+           (se 'me (switch-but-first (bf phrase))))
+          (else (se (first phrase) (switch-but-first (bf phrase))))))
+
+(define (switch phrase)
+  (cond ((empty? phrase)
+         '())
+        ((empty? (bf phrase))
+         (se (switch-first phrase)))
+        (else
+         (se (switch-first phrase) (switch-but-first (bf phrase))))))
+  
+
+;test case 1
+(define phrase1 '(You told me that I should wake you up))
+(switch phrase1)
+  
+
+;test case 2
+(define phrase2 '())
+(switch phrase2)
+  
+
+;test case 3
+(define phrase3 '(You))
+(switch phrase3)
+
+;test case 4
+(define phrase4 '(Me you))
+(switch phrase4)

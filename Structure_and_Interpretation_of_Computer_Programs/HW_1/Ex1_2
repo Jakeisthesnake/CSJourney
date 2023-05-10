@@ -1,0 +1,10 @@
+#lang simply-scheme
+
+(define (square x)
+  (* x x))
+
+(define (squares nums)
+  (cond ((empty? nums) '())
+        (else (se (square (first nums)) (squares (bf nums)))) ))
+
+(squares '(1 2))

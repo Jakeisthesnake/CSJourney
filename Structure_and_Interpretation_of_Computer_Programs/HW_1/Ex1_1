@@ -1,0 +1,64 @@
+#lang simply-scheme
+
+;Ok, so as you can see below, I actually wrote out the functions to see what would happen.
+;I didn't have a stong hypothesis of what would happen, but the non-termination had crossed my mind.
+;But I didn't understand what was going on.
+;I finally looked at the hw answers, but they still didn't make sense because I thought that
+;it was saying that each conditional test would evaluate first but also that once a true was
+;discovered it would stop.
+;I then wrote a little test script to replicate the bug in a simpler script. I tried to sneak
+;in a few displays into the cond tests but they didn't run. After fiddling around I finally
+;realized that the answer was that the arguments of a function are what evaulate first, not the
+;test cases.
+
+
+;Copying the code.
+(define (new-if predicate then-clause else-clause)
+  (cond (predicate then-clause)
+        (else else-clause)))
+
+(define (square x)
+  (* x x))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (sqrt-iter guess x)
+  (new-if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x) x)))
+
+
+(define guess 2.0)
+(define x 2)
+(new-if (good-enough? guess x)
+      guess
+      (+ (improve guess x) x))
+
+
+
+;Writing simpler script.
+
+(define (test1? y)
+  (display "A")
+  (= y y))
+
+(define (test2? y)
+  (display "B")
+  (= y y))
+
+(define (condtest x)
+  (cond (test1? 1)
+        (condtest 3)))
+
+(define (condtest1 x)
+  (cond (test1? 1)
+        (condtest 3)))
+
+(condtest1 (display x))

@@ -1,0 +1,24 @@
+#lang simply-scheme
+
+(define (display-1-true)
+  (display 1)
+   #t)
+           
+(define (display-2-true)
+  (display 2)
+   #t)
+
+(define (display-3-false)
+  (display 3)
+   #f)
+           
+(define (display-4-false)
+  (display 4)
+   #f)
+
+;test cases
+(or (display-1-true) (display-2-true)) ;if or evaluated every argument it would display 2 as well
+(or (display-3-false) (display-2-true))
+(or (display-1-true) (display-4-false)) ;if or evaluated every argument it would display 4 as well
+(or (display-3-false) (display-4-false))
+

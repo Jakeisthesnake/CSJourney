@@ -1,0 +1,33 @@
+#lang simply-scheme
+
+(define (ordered? nums)
+  (cond ((empty? nums) #t)
+        ((empty? (bf nums)) #t)
+        ((< (first nums) (first (bf nums))) (ordered? (bf nums)))
+        (else #f)))
+
+;test if empty
+(ordered? '())
+
+;test if only one character
+(ordered? '(-2))
+
+;test true base case1
+(ordered? '(-2 1))
+
+;test false base case2
+(ordered? '(2 1))
+
+;test true compound case1
+(ordered? '(-2 1 2))
+
+;test false compound case2
+(ordered? '(2 1 2))
+
+;test false compound case3
+(ordered? '(-2 1 -2))
+
+;test false compound case4 probably not needed but why not
+(ordered? '(2 1 -2))
+
+

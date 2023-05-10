@@ -1,0 +1,7 @@
+#lang simply-scheme
+
+(define (ordered nums)
+  (cond ((empty? nums) true)
+        ((empty? (bf nums)) true)
+        ((< (first nums) (first (bf nums))) (ordered? (bf nums)))
+        (else false))
