@@ -1,0 +1,106 @@
+#lang simply-scheme
+
+(define (pigl wd)
+  (if (pl-done? wd)
+      (word wd 'ay)
+      (pigl (word (bf wd) (first wd)))))
+
+(define (pl-done? wd)
+  (vowel? (first wd)))
+
+(define (vowel? letter)
+  (member? letter '(a e i o u)))
+
+(define (piglfy phrase)
+  (cond ((empty? phrase)
+         '())
+        (else (se (pigl (first phrase)) (piglfy (bf phrase)))))) 
+
+;test phrase, not perfect but the lab didn't ask for more.
+(define phrase1 '(This will copy a file from the class library to your own directory))
+(piglfy phrase1)
+
+(define (plural wd)
+  (cond ((equal? (word (last (bl wd)) (last wd)) 'oy)
+         (word wd 's))
+        ((equal? (last wd) 'y)
+         (word (bl wd) 'ies))
+        (else (word wd 's))))
+
+;test 1
+(plural 'boy)
+;test 2
+(plural 'tree)
+;test 3
+(plural 'baby)
+
+(define (square a)
+  (* a a))
+
+(define (sum_largest_3_squares a b c)
+  (cond ((and (<= a b) (<= a c))
+         (display (se 'a (+ (square b) (square c)))))
+        ((and (<= b a) (<= b c))
+         (display (se 'b (+ (square a) (square c)))))
+        (else
+         (display (se 'c (+ (square a) (square b)))))))
+
+;test 1
+(sum_largest_3_squares 1 2 3)
+;test 2
+(sum_largest_3_squares 2 1 3)
+;test 3
+(sum_largest_3_squares 3 2 1)
+;test 4
+(sum_largest_3_squares 1 3 2)
+;test 5
+(sum_largest_3_squares 2 3 1)
+;test 6
+(sum_largest_3_squares 3 1 2)
+
+;test 7
+(sum_largest_3_squares 1 1 2)
+;test 8
+(sum_largest_3_squares 2 1 1)
+;test 9
+(sum_largest_3_squares 1 1 2)
+
+;test 10
+(sum_largest_3_squares 1 2 2)
+;test 11
+(sum_largest_3_squares 2 1 2)
+;test 12
+(sum_largest_3_squares 2 2 1)
+
+;test 13
+(sum_largest_3_squares 2 2 2)
+
+(define (del-from-phrase phrase target)
+  (cond ((empty? phrase)
+         '())
+        ((equal? (first phrase) target)
+         (del-from-phrase (bf phrase) target))
+        (else
+         (se (first phrase) (del-from-phrase (bf phrase) target))))) 
+  
+
+(define (dupls-removed phrase)
+  (cond ((empty? phrase)
+         '())
+        (else (se (dupls-removed (del-from-phrase phrase (last phrase))) (last phrase)))))
+
+;test 1
+(del-from-phrase '(a b c a e d e b) 'a)
+;(c a d e b)
+
+;test 4
+(dupls-removed '(a b c a e d e b))
+;(c a d e b)
+
+;test 5
+(dupls-removed '(a b c))
+;(a b c)
+
+;test 6
+(dupls-removed '(a a a a b a a))
+;(b a)

@@ -1,0 +1,97 @@
+#lang simply-scheme
+
+(define (get-method message parent-list)
+  (if (empty? parent-list)
+      #f
+      (let ((returned-procedure (ask (car parent-list) message)))
+        (if returned-procedure
+            returned-procedure
+            (get-method message (cdr parent-list))))))
+
+
+(define (ask object message . args)
+  (let ((method (object message)))
+    (if method
+        (apply method args)
+	(begin
+          (display "No method ")
+          (display message)
+          (display " in class ")
+          (display (cadr method))
+          (newline)
+          (#f)))))
+
+(define person
+  (let ((list-of-persons '())) ;; class vars set up
+    (lambda (class-message) ;; class dispatch proc
+      (cond ((eq? class-message 'list-of-persons)
+             (lambda () list-of-persons))
+            ((eq? class-message 'instantiate)
+             (lambda () ;; Instantiation vars
+               (let ((self '())) ;; Instance vars
+                 (define (dispatch message) ;; Object dispatch proc
+                   (cond ((eq? message 'usual) ;; How USUAL works
+                          (lambda (message . args)
+                            (let
+                                ((method (get-method message '())))
+                              (if method
+                                  (apply method args)
+                                  (begin (display "No USUAL method ")
+                                         (display message)
+                                         (display " person")
+                                         (newline)
+                                         #f)))))
+                         ((eq? message 'smell-flowers)
+                          (lambda () 'Mmm!))
+                         (else ;; Else clause:
+                          #f)))
+                  dispatch))) ;; Class' instantiate;; proc returns object
+             (else
+              (display "Bad message to class ")
+              (display class-message)
+              (newline)
+              #f)))))
+
+(define banana-holder
+  (let ((list-of-banana-holders '())) ;; class vars set up
+    (lambda (class-message) ;; class dispatch proc
+      (cond((eq? class-message 'list-of-banana-holders)
+            (lambda () list-of-banana-holders))
+           ((eq? class-message 'instantiate)
+            (lambda (name) ;; Instantiation vars
+              (let ((self '()) ;; Instance vars
+                    (my-person ((person 'instantiate) 'my-person))
+                    (my-fruit-lover ((fruit-lover instantiate) 'my-fruit-lover 'banana))
+                    (bananas 0))
+                (define (dispatch message) ;; Object dispatch proc
+                  (cond((eq? message 'initialize) ;; Initialize method:
+                        (lambda (value-for-self) ;; set up self variable
+                          (set! self value-for-self)
+                          (ask my-person 'initialize self)
+                          (ask my-fruit-lover 'initialize self)
+                          (set! list-of-banana-holders ;; user's init code
+                                (cons self list-of-banana-holders))))
+                       ((eq? message 'usual) ;; How USUAL works
+                        (lambda (message . args)
+                          (let
+                              ((method (get-method message
+                                                  '(my-person my-fruit-lover))))
+                            (if (method? method)
+                                (apply method args)
+                                (error "No USUAL method" message 'banana-holder)))))
+                       ((eq? message 'name)
+                        (lambda () name))
+                       ((eq? message 'bananas)
+                        (lambda () bananas))
+                       ((eq? message 'list-of-banana-holders)
+                        (lambda () list-of-banana-holders))
+                       ((eq? message 'get-more-bananas)
+                        (lambda (amount)
+                          (set! bananas (+ bananas amount))))
+                       (else ;; Else clause:
+                        (let ((method (get-method message
+                                                  '(my-person my-fruit-lover)))
+                          (if (method? method) ;; Try delegating...method
+                              (lambda args 'sorry)))))) ;; default-method
+                dispatch)))) ;; Class' instantiate;; proc returns object
+           (else (error "Bad message to class" class-message))))))

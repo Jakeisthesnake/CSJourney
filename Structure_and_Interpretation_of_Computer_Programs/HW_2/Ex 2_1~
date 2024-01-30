@@ -1,0 +1,24 @@
+#lang simply-scheme
+
+(define (product term a next b)
+  (if (> a b)
+      1
+      (* (term a)
+         (product term (next a) next b))))
+;test 1
+(define (by1 x) x)
+(define (next1 x) (+ 1 x))
+(product by1 2 next1 4)
+
+(define (factorial n) (product by1 1 next1 n))
+
+;test
+(factorial 4)
+
+(define (pi-term n)
+  (if (even? n)
+      (/ (+ n 2) (+ n 1))
+      (/ (+ n 1) (+ n 2))))
+(define (pi-4 n) (product pi-term 1.0 next1 n))
+;test
+ (* (pi-4 1000000) 4)
