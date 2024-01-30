@@ -1,0 +1,11 @@
+1a) 64 bit + 27 (log_2(4 GiB/32B) + 1+1+3 (8 entries) = 96
+1b) 8
+1c) 2^27?
+
+2a) 2 + N/8? (2 for the misses to get hist[0-8] and hist[9-15], and then every 8th access on in will be a new page)
+2b) 8?
+
+3) I don't think it will reducxe the amount of times in needs to be accessed.
+
+4a) 2^13B (2^15B if word addressed)
+4b) 2
