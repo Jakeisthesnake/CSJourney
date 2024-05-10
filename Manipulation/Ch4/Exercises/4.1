@@ -1,0 +1,5 @@
+2D: The rotation matrix has 2 variables, so 2 knowns are required to match the model and scene. If correspondances were unknown, we would need 3 points - though at least one of the distances would have to be differenct in order to get a proper match.
+
+3D: The rotation matrix in 3D has 3 variables so it require 3 unknowns.
+
+Okay, my answer is handwavy and smells incorrect. xkhainguen's justification feels more on point: in 2D you have 3 unknowns, 2 for position, and 1 for rotation; as each matching point provides 2 knowns, you need 2 to get more than 3 unknowns. Similarly, in 3D, you have 3 unknowns for positiona dn 3 for orientation, so you need 3 points, each containing two knowns to solves for the unknowns.
