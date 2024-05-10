@@ -1,0 +1,13 @@
+If the question is asking how to allow 90 degree rotations as correct, even if they violate the known correspondances:
+In 2D:
+1) Find the centriod
+2) Discard the points in 3 of the 4 quadrants wrt to the centroid
+3) Solving with ICP should allow the object to snap into the closest symmetry.
+
+Same in 3d but using only one octet instead of one quadrant.
+
+Oh, hmmm I wonder if there is a way to put a constrain on R such that it is +/- 45 degrees in 2D (which would correspond to limiting the diagnol of R to (1/sqrt(2), 1) and for 3d... somehow contraining the variables to limit the rotation.
+Hmmm actually this won't get us there since the correspondances get in the way. Yeah, not how to deal with them without just deleting them and establishing new correspondances...
+
+Oh, I guess, you could just solve as you did originally, but then just measure how much the scene was rotated and then substract 90 degrees until it is fixed in the quadrant +/- 45 degrees.
+This would generalize to 3D. Hmmm not sure if this answers the question.
