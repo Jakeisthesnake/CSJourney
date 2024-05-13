@@ -1,0 +1,8 @@
+a) Cost = (p_x + a - 1)^2 + (p_y + b)^2 + (p_x - a)^2 + (p_y - b)^2, taking first and second partials wrt to p_x, p_y, a, and b gave a minimal at 0, 0, 0, and 1 resprectively.
+This happens when the corresponding points start closer to eachother than to the point they don't correspond to (i.e. if you draw a line the bisects the model rectangle,
+the scene point that corresponds to the right side has to start in the right half and visaversa for the left scene point.
+
+b) seemded trivial to flip the numbers and repeat the math.
+
+c) If both scene points correspond to the same model point, W is the zero matrix. This gives R as the identity matrix which means that the rotation doesn't need to change regarless of the orientation.
+This leads to the points just alinging with the scene points centered on whichever model point they both correspond to.
