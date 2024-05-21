@@ -1,0 +1,7 @@
+a) theta = arctan(mu)
+b) yes: all the spheres are stacked vertically creating an unstable equilibrium. All forces are vertical and pass through the center of each sphere, so no friction is required.
+c) no: in order to be in static equilibrium in translation, the force due to friction is nin-zero which creates a torque that is un opposed, leading to rotation.
+d) guess yes, but no proof other than the simulation didn't move
+e) guess yes, but no proof other than the simulation didn't move
+f) The initial guess matters because it is non convex evidenced by the trig functions that relate the positions and the reaction forces.
+g) An FBD can solve for wheter q is in the joint limits and wheter there is penetration. (I think...)
