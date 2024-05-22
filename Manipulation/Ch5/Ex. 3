@@ -1,0 +1,11 @@
+1a) antipodal if dy(t_1)/dx(t_1) = dy(t_2)/dx(t_2) &&  dy(t_1)/dx(t_1) = -1*(x(t_2) - x(t_1))/(y(t_2) - y(t_1)) && normals are pointing away from eachother
+
+E = x^2(t_1) - 2x(t_1)x^2(t_2) + x^2(t_2) + y^2(t_1) - 2y(t_1)y^2(t_2) + y^2(t_2)
+pE/pT = { 2x(t_1)(px/pt_1) - 2x(t_2)(px/pt_1) + 2y(t_1)(py/pt_1) - 2y(t_2)(py/pt_1),
+          2x(t_2)(px/pt_2) - 2x(t_1)(px/pt_2) + 2y(t_2)(py/pt_2) - 2y(t_1)(py/pt_2),
+        }
+T is antipodal => pE/pT = {0,0}
+1b) However, pE/pT = {0,0} doesn't capture the requirement that the normals must be pointing opposite eachother
+d) A minima means that the distance between grippers is increasing on either side. Maxima -> distance is decreasing on either side. Saddle -> distance is increasing on one side and decreasing on the other.
+Minima could be good for locking in the gripper, provided the gripper and reach it. A maxima ensures the gripper and reach it but it might slipout under a small disturbance. A saddle point... could be a
+compromise betweent the two, or a second option if the preferred grasp (min or max) is not available.
