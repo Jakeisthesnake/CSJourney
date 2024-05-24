@@ -1,0 +1,20 @@
+a) The fall back fails first, then the sequence fails, and then the "ask for help" action is attempted.
+b) 1. Ball close? 2. Ball lost? 3. Grasp ball. 4 Ball found ^ ball far?
+c) ?
+     Bin Empty?
+     ->
+       ?
+         Feasible Grasp Exists?
+         Randomize bin.
+       ?
+         Grasp selected?
+         Select Grasp.
+       ?
+         Object Grasped?
+         Grasp Object(s).
+       ?
+         Grasped Object(s) above Bin 2?
+         Transport grasped object(s) to above Bin 2.
+       ?
+         Object(s) in Bin 2?
+         Drop grasped object(s) into Bin 2
