@@ -1,0 +1,3 @@
+a) The timescale is large enough that by physics equations predict the block will have fallen past the ramp by the next time step.
+d)  The FBD's boild down to mu1_static >= tan(theta) and mu2_dymanic = tan(theta). If we allow static and dynamic mu to be equal, technically the two coeffiecients can be the same.
+If dynamic can be less than static, then m2 static could be larger than mu static. 
