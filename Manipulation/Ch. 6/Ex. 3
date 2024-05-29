@@ -1,0 +1,2 @@
+a) q_start and q_6
+b) The parent of q_new with vanilla RRT will be q_near. For the shortest path, it should be q_1.
