@@ -1,0 +1,1 @@
+b) No if it is allowed to go indefinitely with no solutions, the rtt will just get more and more dense. If there is a solution, RRT will eventually find it as it gets denser.
