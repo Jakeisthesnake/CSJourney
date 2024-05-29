@@ -1,0 +1,13 @@
+a) Z, roll (about z), and yaw (about x) can be given some leaniancy since the gripper can still be centered on the handel while letting those parameters flex.
+For even more relaxation, the x and y position of the gripper can be relaxed as long as the y axis instesects the handel's z-axis.
+b) min |q - q_nom|^2
+   |p_WG_x - p_WH_x| = 0
+   |p_WG_y - p_WH_y| = 0
+   |R_WG_pitch - p_WH_pitch| = 0 degrees
+   
+   |p_WG_z - p_WH_z| < handle_length/2
+   |R_WG_roll - p_WH_roll| < 15 degrees
+   |R_WG_yaw - p_WH_yaw| < 15 degrees
+
+   For more rigor, I think I would have to convert the Rotation costraints to expressions in terms of theta...
+   
