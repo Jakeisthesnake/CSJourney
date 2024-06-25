@@ -1,0 +1,14 @@
+a)
+Statics eqs:
+x: f_a - N_c >= 0
+y: N_a + f_c - mg >= 0
+t: r * (N_c + f_c - mg/2) >=0
+
+Min normal force N_c requires max friction force f_c = N_c * u_c:
+t ->  N_c + N_c * u_c >= mg/2
+-> N_c >= mg/(2 * (1 + u_c))
+
+b)
+Max N_c when max f_b when max 
+y -> N_a + f_c - mg >= 0, substituting 
+-> N_a 
