@@ -1,0 +1,9 @@
+a)
+m * x_double_dot = u + f:
+-substituting u = k_p * (x - x_d) + k_d * x_dot - f_d gives:
+m * x_double_dot = k_p * (x - x_d) + k_d * x_dot - f_d + f
+- subsituting x = x_d, and x_dot = x_double_dot = 0 gives:
+0 = f - f_d
+and since f = 0 we have 0 = f_d which is a contradiction that |f_d| > 0
+
+b) With a wall, everythiing plays out the same exept that f is non zero, so f = f_d which is perfectly fine.
