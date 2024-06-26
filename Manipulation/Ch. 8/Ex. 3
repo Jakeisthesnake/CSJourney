@@ -1,0 +1,12 @@
+a) fc > fa, at their maxes fc = Nc * uc and fa = Na * ua,
+-> Nc * uc > Na * ua
+
+since y_double_dot = 0 -> Nc + mg = Na
+substituting into Nc * uc > Na * ua gives:
+Nc * uc > (Nc + mg) * ua
+
+uc/ua > 1 + mg/Nc
+
+b) False: uc decrease -> uc/ua decrease which gets closer to 1 from above and thus approaches invalidation of the inequality
+c) True: Nc increase -> 1 + mg/Nc decrease which creates more buffer in the inequality.
+(But added Nc quickly is marginal as mg/Nc << 1 and in the real world other things start to happen, like the book breaking).
