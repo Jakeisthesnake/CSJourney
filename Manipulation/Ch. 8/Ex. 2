@@ -8,7 +8,22 @@ Min normal force N_c requires max friction force f_c = N_c * u_c:
 t ->  N_c + N_c * u_c >= mg/2
 -> N_c >= mg/(2 * (1 + u_c))
 
-b)
-Max N_c when max f_b when max 
-y -> N_a + f_c - mg >= 0, substituting 
--> N_a 
+b) 
+x -> f_a >= N_c
+If f_c = N_c * u_c and the box still slips, there won't be a (static) way to lift the box (a dynamic impact would do it). f_a would be at it's max for the corresponding N_a * u_a
+y -> N_a + f_c - mg >= 0, substituting f_c = N_c * u_c
+-> N_a + N_c * u_c >= mg
+
+[not super happy with this answer from this point on]
+-> N_a >= mg - N_c * u_c, substituting into f_a = N_a * u_a >= N_c
+-> (mg - N_c * u_c) * u_a >= N_c
+-> mg*u_a/(1 + u_c * u_a) >= N_c
+
+c) mg*u_a/(1 + u_c * u_a) >= mg/(2 * (1 + u_c))
+-> u_a/(1 + u_c * u_a) >= 1/(2 * (1 + u_c))
+-> 2 * u_a * (1 + u_c) >= 1 + u_c * u_a
+-> 2 * u_a + 2 * u_a * u_c >= 1 + u_c * u_a
+-> u_a * (2 + u_c) >= 1
+
+u_a = .25 -> u_c = 2 which would be some sort of gluey substatance
+u_a = 1 -> u_c = -1 which would be some sort of friction defying repulsive substance
