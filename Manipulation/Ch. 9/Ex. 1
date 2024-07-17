@@ -1,0 +1,5 @@
+1b) No, since there would be no way to distinguish between the two pointclouds when making the masks without knowing more about the objects (i.e. are they rectangles?)
+1c) If they are far apart than the clustering sould be able to seperate the two objects. However, we might be required to tell the algorythm that there are exactly
+two objects in the object in the forground splits the view of the object in the backgground, making it look like there are two clusters.
+1d) If the objects are too close, then the clustering alogythm might not be able to distinguish beteen the two objects.
+If one ojects looked like a dumbell with two bulbous ends, and the other objects was close to one of the ends, then the dumbell might get split into two.
