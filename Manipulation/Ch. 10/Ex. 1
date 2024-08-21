@@ -1,0 +1,13 @@
+1c) x <- x - n * (L(x + w) - b(x)) * w
+dx = - n * (L(x + w) - b(x)) * w
+
+Taylor series of L(x) = L(x_o) + L'(x_o) * w + ...
+
+dx ~ - n * (L(x_o) + L'(x_o) * w + ... - b(x)) * w
+dx ~ - n * (L(x_o) - b(x)) * w + L'(x_o) * w^2 + ... 
+Ex(dx) ~ Ex(- n * (L(x_o) - b(x) * w) + L'(x_o) * w^2 + ...)
+= Ex(- n * (L(x_o) - b(x)) * w) + EX(L'(x_o) * w^2 + ...)
+= (- n * (L(x_o) - b(x))) * Ex(w) + L'(x_o) * EX(w^2) + ...
+since Ex(w) = 0 :
+= L'(x_o) * EX(w^2) + ...
+Given that b(x) could have been L(x) we would have had the same result.
