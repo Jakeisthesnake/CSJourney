@@ -1,0 +1,9 @@
+a) J = Int(0 to inf)[(x^2q_11 + y^2q_22 + theta^2q_33 + 2xyq_12 + 2xthetaq_13 + 2ythetaq_23) dt]
+   Since we only want to penalize the magnitude of y, we set everything to zero except q_22 so that
+   J = q_22 * Int(0 to inf)[y^2dt].
+b) Nope, changing q_22 doesn't change the shape of J, since it will be picking u to minimize y regardless.
+c) To penalize sharper turns, increase R to drive u^2 down which drives theta_dot down which is propotional to
+   how sharp a tern is.
+d) No, we would want a uy term to minimize the product of the streering rate and the distance from the centerline.
+e) If we make all terms positive, we would drive the dynamics of the car to drive the car towards the origin with
+   the car facing in the x direction with steering at rest. So basically a parking objective.
