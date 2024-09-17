@@ -1,0 +1,6 @@
+a) If J* is the true optiomal cost-to-go, then J*(s_i+1) - J*(s_i) = J*(s_i+1) + C - J*(s_i) - C = J^*(s_i+1) - J^*(s_i), for all s_i s.t. there exists an a s.t. f(s_i+1,a) = s_i.
+    Thus argmin_a [l(s_i, a) + J^*(f(s_i,a))] picks the same a regardless of the added constant which in turns means that J^* remains constant during a value iteration update.
+
+b) Yes, since pi*(s_i) = argmin_a [l(s_i, a) + J*(f(s_i,a))] follows the same actions regardles of the added constant, the two policies are identical.
+
+c) 
