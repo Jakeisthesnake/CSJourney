@@ -1,0 +1,6 @@
+a) when x=0 and u = +/-1
+b) the smaller tau causes x to stay closer to the x axis on average, and since the x term gets squared in the cost,
+   that results in a smaller integral.
+c) J(t) = floor(t/tau) * tau^3/3 + f(t) in (0, tau^3/3) = t * tau^2/3 + (0, tau^3/3).
+   So the optimal control is when tau = 0. So you would need a controller with infinite bandwith
+   to achieve optimal control
