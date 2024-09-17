@@ -3,4 +3,5 @@ a) If J* is the true optiomal cost-to-go, then J*(s_i+1) - J*(s_i) = J*(s_i+1) +
 
 b) Yes, since pi*(s_i) = argmin_a [l(s_i, a) + J*(f(s_i,a))] follows the same actions regardles of the added constant, the two policies are identical.
 
-c) 
+c) For J^*(s_i) <= J*(s_i) + c, for a J*(s_0) with seqence s_0, s_b1, s_b2, ... , s_bn, s_f to fixed zero point s_f (i.e. f(s_f, pi*(s_f)) = s_f and l(s_f, pi*(s_f)) = 0)) 
+J*(s_0) = l(s_0, a_b0) + J*(s_1) = l(s_0, a_b0) + l(s_b1, a_b1) + ... + l(s_bn, a_bn) + l(s_0, a_0)
