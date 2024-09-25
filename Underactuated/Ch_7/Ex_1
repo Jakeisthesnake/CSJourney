@@ -1,7 +1,10 @@
-a) If J* is the true optiomal cost-to-go, then J*(s_i+1) - J*(s_i) = J*(s_i+1) + C - J*(s_i) - C = J^*(s_i+1) - J^*(s_i), for all s_i s.t. there exists an a s.t. f(s_i+1,a) = s_i.
-    Thus argmin_a [l(s_i, a) + J^*(f(s_i,a))] picks the same a regardless of the added constant which in turns means that J^* remains constant during a value iteration update.
+a) Since J^*(s) = argmin_a [l(s_i, a) + J^*(f(s_i,a))], J^*(s_i) = argmin_a [l(s_i, a) + J*(f(s_i,a)) + C]. But the C is constant so we can factor is out, resulting in
+   J^*(s_i) = argmin_a [l(s_i, a) + J*(f(s_i,a))] + C. And since J*(s_i) = argmin_a [l(s_i, a) + J*(f(s_i,a))], we are left with J^*(s) = J*(s_i) + C. Thus  J^*(s) won't change with each
+   interation and it thus a fixed point.
 
-b) Yes, since pi*(s_i) = argmin_a [l(s_i, a) + J*(f(s_i,a))] follows the same actions regardles of the added constant, the two policies are identical.
+b) If J* is the true optiomal cost-to-go, then J*(s_i+1) - J*(s_i) = J*(s_i+1) + C - J*(s_i) - C = J^*(s_i+1) - J^*(s_i), for all s_i s.t. there exists an a s.t. f(s_i+1,a) = s_i.
+   Thus argmin_a [l(s_i, a) + J^*(f(s_i,a))] picks the same a regardless of the added constant which in turns means that J^* remains constant during a value iteration update.
+   Thus pi*(s_i) = argmin_a [l(s_i, a) + J*(f(s_i,a))] follows the same actions regardles of the added constant, the two policies are identical.
 
-c) For J^*(s_i) <= J*(s_i) + c, for a J*(s_0) with seqence s_0, s_b1, s_b2, ... , s_bn, s_f to fixed zero point s_f (i.e. f(s_f, pi*(s_f)) = s_f and l(s_f, pi*(s_f)) = 0)) 
-J*(s_0) = l(s_0, a_b0) + J*(s_1) = l(s_0, a_b0) + l(s_b1, a_b1) + ... + l(s_bn, a_bn) + l(s_0, a_0)
+c) Let's look at s such that J*(s) = 0, therefore l(s,a:f(s,a)=s) = 0. So if we set J^*(s) = J*(s) + C = C, the next iteration will be J^*(s) = l(s,a:f(s,a)=s) + y * J^*(s) = yC.
+   Subsequent interactions will be y^2C, y^3C, etc. With 0 < y < 1, J^*(s) will converge back to 0 with a simpler "smoothing of the ripple" happening for all s_i.
