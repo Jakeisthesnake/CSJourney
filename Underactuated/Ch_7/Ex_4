@@ -1,0 +1,17 @@
+a) Yes, I would be worried that I made a mistake. S < 0 would imply J* < 0 for all x != 0. But we picked l(x,u) to be non negative,
+   so integrating over time should always give a positive answer. So this J would never approach a goal. 
+b) L = 3x^2 + (-Kx)^2 = (3 + K^2) * x^2
+   J = S * x^2
+   dJ/dx = 2Sx
+   f(x,u) = x_dot = x + u = x - Kx = (1 - K) * x
+   0 = L + dJ/dx * f(x,u) = (3 + K^2) * x^2 + 2Sx * (1 - K) * x = (3 + K^2 + 2S - 2SK) * x^2
+   so 0 = (3 + K^2 + 2S - 2SK). We want to pick K to minimize the cost function which is proportional to S, so we want to pick K to minimize S
+   solving for S:
+   S * (2K - 2) = (K^2 + 3)
+   S = (K^2 + 3) / (2 * (K - 1))
+   dS/dK = (((2 * (K - 1)) * 2K) - (K^2 + 3) * 2) / (4 * (K - 1)^2) = (4K^2 - 4K - 2K^2 - 6) / (4 * (K - 1)^2) = 2 * (K^2 - 2K - 3) / (4 * (K - 1)^2) = 2(K-3)(K+1)/(4(K-1)^2)
+   so dS/dK = 0 give (K,S) = (3,3) and (-1, -1)
+   But S can't be negative, so the answer is (3,3)
+c) answer is (ii): J is in the form Sx^2, so that weeds out (i), and as h -> 0 we expect S = 3 which only leaves (ii) since 1 + 2h + 2*sqrt(h^2 + h + 1) goes to 1 + 2*sqrt(1) = 3
+   (and -1, another good sign based on the second possible answer from part b), but we only want the positive result)
+   
