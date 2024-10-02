@@ -1,0 +1,4 @@
+ai) Yes, it follows the boundry between full gas and full brake to the rest point at the origin.
+aii) Not quite, there is a lot of chatter once the trajectory hit the boundry, with many values between 0 and 1.
+aiii) Due to the discretization, the FittedValueIteration take averages over close points which can lead to values that are not -1, 0, or 1.
+b) Not completely, it does look more symmetric, but the approach to the origin is still a bit elongated compared to the path to the boundry.
