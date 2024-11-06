@@ -13,6 +13,41 @@ b)
 S5 -> S4 -> S3 -> S2 -> S1 -> S0:
 6 calculations
 
-c)
-S_0 = S_goal
-S_i+1 = any node such that
+c) If l(s,a) = {0 if s= goal, 1 otherwise}, then the following alogrythm will calculate J(s_i) exactly once for each s_i.
+s_0 = s_goal, then greedily compute the J(s_i) for each s_i with an edge pointing to the node with the lowest J.
+So first J(s_0) = 0 since it it the goal.
+Then calculate J(s_i) for each s_i with an edge pointing to s_goal that doesn not have a calculated J (since there could be a node with two edges pointing to goal).
+Repeat this in a breadth first search pattern until all nodes have a calculated J.
+
+However, if l(s,a) varies, then this algorythm requires searching for the edge node pair with the lowest sum.
+This computationally the same as the above, since all s with an edge pointing to the set of s that have a J calculated will have their J calculated during the search.
+    s_2
+  3/  1\
+s_3     s_goal
+   1\  2/
+     s_1
+First J(s_goal) = 0.
+Then J(s_1) and J(s_2) are calculated (1 and 2 respectively).
+Then J(s_3) is evaulated on the edge pointing towards s_2 since J(s_2) is the lowest.
+Then J(s_3) is recalculated, but this time on the edge towards s_1.
+
+We could instead say the following:
+First J(s_goal) = 0.
+Then search for the edge with the lowest value, in this case the edge from s_2.
+Calculate J(s_2)
+Then search for the edge-node pair with the lowest sum, in this case edge from s_1 to s_goal (since 1(edge from s_1) + 0(J(s_goal) < 3(edge from s_3) + 1(J(s_2)))
+Caluculate J(s_1)
+Search again for the edge-node pair with the lowest sum, in this case edge from s_3 to s_1 (since 1(edge from s_3) + 2(J(s_1) < 3(edge from s_3) + 1(J(s_2)))
+Calculate J(s_3)
+This way of saying it makes it seem that we are not ever repeating calculations of J(s_i), but during the search process is where the repition happens (as we had to evaluate 3(edge from s_3) + 1(J(s_2)) twice).
+
+c) Yes, an optimal policy can still be found as long as every node as a path to the goal. One way of seeing this is the observation that the cost of continously looping around a cycle is infinite,
+while that cost along any path to the goal is finite.
+
+d) Hmmm tricky. I think it depends on
+- a) number of node
+- b) the average length of the chain between a node and goal
+- - b_1) the average length of the chain between a node and goal might be perameterized by the humber of ways to pick the order such that you do exactly the number of updates as batched iterative update
+         and the number of ways to pick the order such that you converge in exactly the number of nodes.
+Food for thought: what is the convergence criteria: when everyother node has been updated and nothing changes. Does "random" take this into acccount?
+Related to the coupon collector problem.
