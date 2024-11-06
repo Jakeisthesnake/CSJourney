@@ -1,0 +1,18 @@
+a)
+
+        S0 S1 S2 S3 S4 S5
+Step_1  1  1  1  1  1  0
+Step_1  2  2  2  2  1  0*
+Step_1  3  3  2* 2* 1* 0*
+Step_1  4  3* 2* 2* 1* 0*
+
+14 calculations ("*" means not recalculated)
+
+b)
+
+S5 -> S4 -> S3 -> S2 -> S1 -> S0:
+6 calculations
+
+c)
+S_0 = S_goal
+S_i+1 = any node such that
