@@ -1,0 +1,5 @@
+    Is our linear approximation valid for all the points we tested? No, some are too far from the point of linearization.
+    Do we expect a linear controller to do a decent job when θ=π/2? Yes.
+    When θ\thetaθ is different from zero, does the linearization error depend on u\mathbf{u}u? I originallly thought no, but seeing the results, it makes sense that it magnifies the error.
+    Why is the error from the second case bigger than the one from the third, even if the second θ\thetaθ is closer to π\piπ than the third? Because u magnifies the error.
+    What about the position xxx of the cart? Should it affect the linearization error? If no, why not? Because x is not an argument for f(x_hat, u)
