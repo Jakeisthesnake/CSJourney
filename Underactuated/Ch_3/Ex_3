@@ -1,0 +1,70 @@
+a1) (-1, -1) -> u = -1 -> (-2, -2)
+             -> u =  0 -> (-2, -1)
+             -> u =  1 -> (-2, 0)
+    ( -1, 0) -> u = -1 -> (-1, -1)
+             -> u =  0 -> (-1, 0)
+             -> u =  1 -> (-1, 1)
+     (-1, 1) -> u = -1 -> (0, -1)
+             -> u =  0 -> (0, 0)
+             -> u =  1 -> (0, 1)
+     (0, -1) -> u = -1 -> (-1, -1)
+             -> u =  0 -> (-1, 0)
+             -> u =  1 -> (-1, 1)
+      (0, 0) -> u = -1 -> (0, -1)
+             -> u =  0 -> (0, 0)
+             -> u =  1 -> (0, 1)
+      (0, 1) -> u = -1 -> (1, 0)
+             -> u =  0 -> (1, 1)
+             -> u =  1 -> (1, 2)
+     (1, -1) -> u = -1 -> (0, -2)
+             -> u =  0 -> (0, -1)
+             -> u =  1 -> (0, 0)
+      (1, 0) -> u = -1 -> (1, -1)
+             -> u =  0 -> (1, 0)
+             -> u =  1 -> (1, 1)
+      (1, 1) -> u = -1 -> (2, 0)
+             -> u =  0 -> (2, 1)
+             -> u =  1 -> (2, 2)
+
+a2 & a3) 0, 1, or 2 steps sepending on starting point (s_i, s_j) and destination (s_k, s_l).
+0 steps if starting point = destination (proof minimal because nothing less than 0)
+1 step if s_k = s_i + s_j (proof: minimal because if start is not the same as destination, at least one step required and thus 1 is minimal.
+2 steps otherwise (s_i, s_j) -> u = s_k - s_i - 2*s_j -> (s_i + s_j, s_k - s_i - s_j) 
+                  (s_i + s_j, s_k - s_i - s_j) -> u = s_l - s_k + s_i +s_j -> (s_k, s_l)
+                  proof assume one step is possible, then s_k must equal s_i + s_j, giving case #1. Thus 2 steps is minimal.
+b1) using the controalability matrix:
+[B, AB] = [0, 1
+           0, 1] which is not linearly independant, thus not controllable.
+
+[B, AB] = [1, 1
+           1, 1] which is not linearly independant, thus not controllable.
+
+[B, AB] = [0, 1
+           1, 1] which is linearly independant, thus controllable.
+
+[B, AB, AAB, AAAB] = [0, 1, 0, 1
+                      0, 1, 0, 2
+                      1, 0, 1, 0
+                      1, 0, 2, 0]     which is linearly independant, thus controllable.
+
+b2) x = [q, q_dot]
+gives
+
+q_dot = q_dot
+q_ddot = u, thus fully actuated since u is unbounded and can be made anything regardless of the state.
+
+x = [q1, q_2, q1_dot, q2_dot]
+q1_dot = q1_dot
+q2_dot = q2_dot
+q1_ddot = q1 + u
+q2_ddot = 2*q2 + u
+thus underactuated since q_ddot must lie along the line [q1, 2*q2] + u. Unless u was a vector with two elements which would give:
+
+q1_dot = q1_dot
+q2_dot = q2_dot
+q1_ddot = q1 + u1
+q2_ddot = 2*q2 + u2
+which is fully actuated since u1 and u2 could be made anything to produce the desired q_ddot = [q1 + u1, 2*q2 + u2].
+
+
+                  
