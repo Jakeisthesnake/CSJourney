@@ -1,0 +1,26 @@
+hand work:
+[x_dot   = [x_dot                     = f(x)
+ x_ddot] =  u - b*x_dot - mgl*sin(x)]
+
+ df/dx = [0,            1    df/du = [0
+          -mgl*cos(x), -b],           1],
+
+det(A-lambda) = (0 - lambda)(-b - lambda) + mgl = 0
+              => lambda^2 + b*lambda + mgl = 0
+              => lambda^2 + 2*lambda * (b/2) + b^2/4 = b^2/4 - mgl
+              => (lambda + b/2)^2 = b^2/4 - mgl
+              => lambda + b/2 = +/-sqrt(b^2/4 - mgl)
+              => lambda = -b/2 +/-sqrt(b^2/4 - mgl)
+
+
+a1)     Nonlinear, b=0, x* = [0,0]:  Sign(Re(lamba_1)) = n/a,   Sign(Re(lamba_1)) = n/a,   is stable i.s.L.,     is not Asymp stable, is not Exp. stable.
+        Nonlinear, b=0, x* = [pi,0]: Sign(Re(lamba_1)) = n/a,   Sign(Re(lamba_1)) = n/a,   is not stable i.s.L., is not Asymp stable, is not Exp. stable
+
+a2, a3) Linear,    b=0, x* = [0,0]:  Sign(Re(lamba_1)) = 0,     Sign(Re(lamba_1)) = 0,     is stable i.s.L.,     is not Asymp stable, is not Exp. stable
+        Linear,    b=0, x* = [pi,0]: Sign(Re(lamba_1)) = 3.13,  Sign(Re(lamba_1)) = -3.13, is not stable i.s.L., is not Asymp stable, is not Exp. stable
+
+b1)     Nonlinear, b=1, x* = [0,0]:  Sign(Re(lamba_1)) = n/a,   Sign(Re(lamba_1)) = n/a,   is stable i.s.L.,     is Asymp stable,     is Exp. stable
+        Nonlinear, b=1, x* = [pi,0]: Sign(Re(lamba_1)) = n/a,   Sign(Re(lamba_1)) = n/a,   is not stable i.s.L., is not Asymp stable, is not Exp. stable
+
+b2, b3) Linear,    b=1, x* = [0,0]:  Sign(Re(lamba_1)) = -0.5,  Sign(Re(lamba_1)) = n/a,   is stable i.s.L.,     is Asymp stable,     is Exp. stable
+        Linear,    b=1, x* = [pi,0]: Sign(Re(lamba_1)) = -3.38, Sign(Re(lamba_1)) = 2.88,  is not stable i.s.L., is not Asymp stable, is not Exp. stable
