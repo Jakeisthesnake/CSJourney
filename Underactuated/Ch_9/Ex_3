@@ -1,0 +1,6 @@
+No, consider x_dot = -x. Let V1 = x^2 and V2 = x^4.
+Both V1 and V2 > 0,
+V1_dot = 2x*-x = -2x^2 < 0 when x != 0
+V2_dot = 4x^3*-x = -4x^4 < 0 when x != 0
+Both V1 and V2 -> inf when |x| -> inf
+Thus both V1 adn V2 sastify GAS, and V1 != V2
