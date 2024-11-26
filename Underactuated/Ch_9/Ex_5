@@ -1,0 +1,11 @@
+ a) Given that forall x, V_dot(x) <=0, V acts as a barrier function across x.
+Thus for x(0) = x_0, given that V(x_0) < V(0), x(t) can never reach 0,
+nor can it get infinitesimally close as there is a gap between V(x_0) and V(0) that
+x(t) can never cross. Thus x(t) cannot converge since you can simple pick epsilon < V(0) - V(x_0)
+
+b) No it is not globally stable to 0 since there are trajectories that the barrier fuinction prevents
+from reaching 0.
+
+c) Yes, x = 0 could be stabel i.s.L. if there is a region around  f(x) = 0.
+
+d) For that same reason as a).
