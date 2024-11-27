@@ -1,0 +1,8 @@
+a) V(x*) = 0 since the x(t0) = x* stays as x*. V(z) is positive definite since
+the inside of the integral is positive definite (the 2 norm is positive definite)
+and the integral of a positive definite function is positive definite.
+Thus V(z) - V(x*) is positive definite.
+
+b) As z goes to infinity, ||z - x*|| goes to infinity. Thus the integral of |z - x*| goes to infinity (sort of,
+this is hand wavy since z is a function of t, and theoretically, z could start arbitrarily far away,
+but if z_dot is big enough, the integral could stay small).
