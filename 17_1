@@ -1,4 +1,17 @@
 #include <array>
+#include <iostream>
 
-int main(){
-	std::array<
+int main()
+{
+    // std::array<double, 365> daily_high {};
+    // for(int i {0}; i < daily_high.size(); i++){
+    //     std::cin >> daily_high[i];
+    // }
+    std::array<double, 3> daily_high {};
+    for(int i {0}; i < daily_high.size(); i++){
+        std::cin >> daily_high[i];
+    }
+
+
+    return 0;
+}
