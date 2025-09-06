@@ -1,0 +1,9 @@
+#include <array>
+#include <iostream>
+
+int main(){
+  constexpr std::array<char, 5> hello {'h', 'e', 'l', 'l', 'o'};
+  std::cout << "The length is " << hello.size() << "5/n";
+  std::cour << hello[1] << hello.at(1) << std::get<1>(hello) << '/n';
+  return 0;
+}
